@@ -22,7 +22,7 @@ class AlphaNum {
     public static function make($input=0){
         $alphabet=AlphaNum::$alphabet;
         $base=AlphaNum::$base;
-        $num=$input;
+        $num=(int)$input;
         $output='';
         do {
             $rest = $num % $base;
