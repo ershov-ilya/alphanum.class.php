@@ -10,56 +10,44 @@
  */
 
 class AlphaNum {
-    private $alphabet;
+//    private static $alphabet='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; // full deck
+    private static $alphabet='0123456789abcdefghijkmnopqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ';
+    private static $base=60;
+
     function __construct($alphabet='0123456789abcdefghijkmnopqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ'){
-        //$alphabet.='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $this->alphabet=$alphabet;
+        AlphaNum::$alphabet=$alphabet;
+        AlphaNum::$base=strlen($alphabet);
     }
 
     public static function make($input=0){
-        $alphabet='0123456789';
-        $alphabet.='abcdefghijkmnopqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ';
-
-
-        $base=strlen($alphabet);
-//    $max=$base-1;
+        $alphabet=AlphaNum::$alphabet;
+        $base=AlphaNum::$base;
         $num=$input;
         $output='';
-
         do {
-            print 'база:' . $base . PHP_EOL;
-            print 'число:' . $num . PHP_EOL;
             $rest = $num % $base;
-            print 'остаток:' . $rest . PHP_EOL;
             $sym=$alphabet[$rest];
             $output.=$sym;
-            print '$sym:' . $sym . PHP_EOL;
             $num = floor($num / $base);
-            print 'частное:' . $num . PHP_EOL;
         }while($num>0);
-        return strrev($output);
+        $output=strrev($output);
+        return $output;
     }
 
-    public static function parse($input=0){
-        $alphabet='0123456789';
-        $alphabet.='abcdefghijkmnopqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ';
-        //$alphabet.='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $base=strlen($alphabet);
-//    $max=$base-1;
-        $num=$input;
-        $output='';
+    public static function parse($input){
+        $alphabet=AlphaNum::$alphabet;
+        $base=AlphaNum::$base;
+        $str=rtrim($input,"\n\r");
 
-        do {
-            print 'база:' . $base . PHP_EOL;
-            print 'число:' . $num . PHP_EOL;
-            $rest = $num % $base;
-            print 'остаток:' . $rest . PHP_EOL;
-            $sym=$alphabet[$rest];
-            $output.=$sym;
-            print '$sym:' . $sym . PHP_EOL;
-            $num = floor($num / $base);
-            print 'частное:' . $num . PHP_EOL;
-        }while($num>0);
-        return strrev($output);
+        $res=0;
+        $len=strlen($str);
+        $last=$len-1;
+
+        for($i=0; $i<$len; $i++){
+            $pos=strpos($alphabet,$str[$i]);
+            $res+=$pos;
+            if($i!=$last) $res *= $base;
+        }
+        return $res;
     }
 }
