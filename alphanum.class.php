@@ -19,7 +19,7 @@ class AlphaNum {
         AlphaNum::$base=strlen($alphabet);
     }
 
-    public static function make($input=0){
+    public static function encode($input=0){
         $alphabet=AlphaNum::$alphabet;
         $base=AlphaNum::$base;
         $num=(int)$input;
