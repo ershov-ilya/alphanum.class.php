@@ -38,3 +38,5 @@ $num: 900800700
 $alphanum: YXFpy
 900800700
 ```
+
+Also there is [JavaScript version](https://github.com/ershov-ilya/alphanum.js) of this module
