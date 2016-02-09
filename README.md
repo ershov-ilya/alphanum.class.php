@@ -3,17 +3,18 @@ Convert **int** to **alphanumeric** hash of any base, you wants, and back
 
 Simple inlcude class, and use as:
 
-**AlphaNum::make($num)**
+**AlphaNum::encode($num)**
 
 and parse back:
 
 **AlphaNum::parse($alphanum)**
+or synonim `AlphaNum::decode($alphanum)`
 
 ###Example
 ```
 $num=900800700;
 print '$num: '.$num.PHP_EOL;
-print $alphanum=AlphaNum::make($num).PHP_EOL;
+print $alphanum=AlphaNum::encode($num).PHP_EOL;
 print AlphaNum::parse($alphanum).PHP_EOL;
 ```
 outputs:
@@ -28,7 +29,7 @@ $alphanum: 19vnq0
 new AlphaNum('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'); // overwrite default alphabet
 $num=900800700;
 print '$num: '.$num.PHP_EOL;
-print $alphanum=AlphaNum::make($num).PHP_EOL;
+print $alphanum=AlphaNum::encode($num).PHP_EOL;
 print AlphaNum::parse($alphanum).PHP_EOL;
 ```
 

@@ -50,4 +50,9 @@ class AlphaNum {
         }
         return $res;
     }
+
+    // Synonim to AlphaNum::parse($input)
+    public static function decode($input){
+        return AlphaNum::parse($input);
+    }
 }
