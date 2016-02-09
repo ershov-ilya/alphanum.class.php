@@ -11,7 +11,7 @@
 
 class AlphaNum {
 //    private static $alphabet='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; // full deck
-    private static $alphabet='0123456789abcdefghijkmnopqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ';
+    private static $alphabet='0123456789abcdefghijkmnopqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ'; // without O as very same to 0 (null), and l (small L) as very same to I (big i)
     private static $base=60;
 
     function __construct($alphabet='0123456789abcdefghijkmnopqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ'){
